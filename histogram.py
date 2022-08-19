@@ -1,5 +1,6 @@
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+import streamlit as st
 
 
 def plot_quiz_hist(quiz_data, n_rows, n_cols):
@@ -54,4 +55,4 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
     fig.update_layout(barmode='stack', height=1000, width=1250,
                       title_text="Quiz", showlegend=False)
     fig.update_xaxes(range=[0, 110], tick0=0, dtick=20)
-    fig.show()
+    st.plotly_chart(fig, use_container_width=True)

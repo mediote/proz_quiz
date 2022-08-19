@@ -1,5 +1,6 @@
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import streamlit as st
 
 
 def plot_quiz_box(quiz_data, n_rows, n_cols):
@@ -54,4 +55,4 @@ def plot_quiz_box(quiz_data, n_rows, n_cols):
                       height=1000, width=1250,)
     fig.update_traces(boxmean=True)
     fig.update_traces(orientation='v')
-    fig.show()
+    st.plotly_chart(fig, use_container_width=True)

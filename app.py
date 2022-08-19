@@ -17,6 +17,6 @@ if uploaded_file is not None:
         ('', 'Histograma', 'Box Plot'))
 
     if option == 'Histograma':
-        ht.plot_quiz_hist(quiz, 3, 5)
+        ht.plot_quiz_hist(quiz, 5, 3)
     if option == 'Box Plot':
-        bp.plot_quiz_box(quiz, 3, 5)
+        bp.plot_quiz_box(quiz, 5, 3)
