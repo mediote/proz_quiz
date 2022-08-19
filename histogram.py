@@ -23,7 +23,6 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                        f'Quiz {i}'.format(i)].pontuacao
         x1 = quiz_data[quiz_data.titulo_objeto ==
                        f'Quiz {i} D'.format(i)].pontuacao
-
         q_number = i
 
         fig.add_trace(
@@ -58,5 +57,4 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
     fig.update_layout(barmode='overlay', height=1000, width=1250,
                       title_text="Quiz", showlegend=False)
     fig.update_xaxes(range=[0, 100], tick0=0, dtick=20)
-    # fig.update_traces(opacity=0.75)
     st.plotly_chart(fig, use_container_width=True)
