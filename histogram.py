@@ -23,13 +23,15 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                        f'Quiz {i}'.format(i)].pontuacao
         x1 = quiz_data[quiz_data.titulo_objeto ==
                        f'Quiz {i} D'.format(i)].pontuacao
+
+        y = quiz_data[quiz_data.titulo_objeto ==
+                      f'Quiz {i} D'.format(i)]
         q_number = i
 
         fig.add_trace(
             go.Histogram(
                 x=x0,
-                y=quiz_data[quiz_data.titulo_objeto ==
-                            f'Quiz {i} D'.format(i)],
+                y=y,
                 name=f'Quiz {q_number}'.format(q_number),
                 nbinsx=10,
                 marker_color='#FF7F00'
@@ -40,8 +42,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
         fig.add_trace(
             go.Histogram(
                 x=x1,
-                y=quiz_data[quiz_data.titulo_objeto ==
-                            f'Quiz {i} D'.format(i)],
+                y=y,
                 name=f'Quiz {q_number} D'.format(q_number),
                 nbinsx=10,
                 marker_color='#593493',
@@ -60,4 +61,5 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                       title_text="Quiz", showlegend=False)
     fig.update_traces(histnorm="density")
     fig.update_xaxes(range=[0, 100], tick0=0, dtick=20)
+    fig.update_yaxes(range=[0, 1], tick0=0, dtick=0.2)
     st.plotly_chart(fig, use_container_width=True)
