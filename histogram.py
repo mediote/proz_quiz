@@ -33,7 +33,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                 nbinsx=10,
                 marker_color='#FF7F00',
                 histnorm="density",
-                cumulative_enabled=True
+                cumulative_enabled=True,
+                cumulative_currentbin="exclude"
             ),
             row=subplots_rows, col=subplots_cols
         )
@@ -46,6 +47,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                 marker_color='#593493',
                 histnorm="density",
                 cumulative_enabled=True,
+                cumulative_currentbin="exclude",
                 opacity=0.55
             ),
             row=subplots_rows, col=subplots_cols
