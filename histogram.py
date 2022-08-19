@@ -44,7 +44,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                 nbinsx=10,
                 marker_color='#593493',
                 histnorm="density",
-                opacity=0.75
+                opacity=0.95
             ),
             row=subplots_rows, col=subplots_cols
         )
