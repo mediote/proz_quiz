@@ -57,7 +57,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
         else:
             subplots_cols += 1
 
-    fig.update_layout(barmode='overlay', height=1000, width=1250,
+    fig.update_layout(barmode='overlay', height=1000, width=1350,
                       title_text="Quiz", showlegend=False)
     fig.update_traces(histnorm="density")
     fig.update_xaxes(range=[0, 100], tick0=0, dtick=20)
