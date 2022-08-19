@@ -29,7 +29,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
             go.Histogram(
                 x=x0,
                 name=f'Quiz {q_number}'.format(q_number),
-                nbinsx=10,
+                # nbinsx=10,
+                nbins=50,
                 marker_color='#FF7F00'
             ),
             row=subplots_rows, col=subplots_cols
@@ -39,7 +40,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
             go.Histogram(
                 x=x1,
                 name=f'Quiz {q_number} D'.format(q_number),
-                nbinsx=10,
+                # nbinsx=10,
+                nbins=50,
                 marker_color='#593493',
                 opacity=0.55
             ),
