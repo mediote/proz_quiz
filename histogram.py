@@ -32,6 +32,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                 name=f'Quiz {q_number}'.format(q_number),
                 nbinsx=10,
                 marker_color='#FF7F00',
+                histnorm="density"
             ),
             row=subplots_rows, col=subplots_cols
         )
@@ -41,7 +42,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                 x=x1,
                 name=f'Quiz {q_number} D'.format(q_number),
                 nbinsx=10,
-                marker_color='#593493'
+                marker_color='#593493',
+                histnorm="density"
             ),
             row=subplots_rows, col=subplots_cols
         )
