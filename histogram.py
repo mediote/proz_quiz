@@ -28,6 +28,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
         fig.add_trace(
             go.Histogram(
                 x=x0,
+                y=quiz_data[quiz_data.titulo_objeto ==
+                            f'Quiz {i} D'.format(i)],
                 name=f'Quiz {q_number}'.format(q_number),
                 nbinsx=10,
                 marker_color='#FF7F00'
@@ -38,6 +40,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
         fig.add_trace(
             go.Histogram(
                 x=x1,
+                y=quiz_data[quiz_data.titulo_objeto ==
+                            f'Quiz {i} D'.format(i)],
                 name=f'Quiz {q_number} D'.format(q_number),
                 nbinsx=10,
                 marker_color='#593493',
