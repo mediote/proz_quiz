@@ -5,7 +5,7 @@ import histogram as ht
 import boxplot as bp
 
 
-uploaded_file = st.file_uploader("Escolha o arquivo.")
+uploaded_file = st.file_uploader("Selecione o arquivo.")
 if uploaded_file is not None:
     with st.spinner('Wait for it...'):
         quiz = pd.read_csv(uploaded_file)
