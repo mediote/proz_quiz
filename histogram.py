@@ -11,7 +11,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
     fig = make_subplots(
         rows=n_rows,
         cols=n_cols,
-        subplot_titles=([(lambda x: f'Quiz {x}'.format(x))(x)
+        subplot_titles=([(lambda x: f'Quiz {x} / {x} D'.format(x))(x)
                         for x in range(1, quiz_range + 1)])
     )
 
