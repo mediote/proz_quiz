@@ -54,7 +54,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
         else:
             subplots_cols += 1
 
-    fig.update_layout(barmode='stack', height=1000, width=1250,
+    fig.update_layout(barmode='overlay', height=1000, width=1250,
                       title_text="Quiz", showlegend=False)
     fig.update_xaxes(range=[0, 110], tick0=0, dtick=20)
+    fig.update_traces(opacity=0.75)
     st.plotly_chart(fig, use_container_width=True)
