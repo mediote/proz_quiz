@@ -40,7 +40,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                 x=x1,
                 name=f'Quiz {q_number} D'.format(q_number),
                 nbinsx=10,
-                marker_color='#593493'
+                marker_color='#593493',
                 opacity=0.55
             ),
             row=subplots_rows, col=subplots_cols
