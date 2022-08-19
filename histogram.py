@@ -43,7 +43,8 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
                 name=f'Quiz {q_number} D'.format(q_number),
                 nbinsx=10,
                 marker_color='#593493',
-                histnorm="density"
+                histnorm="density",
+                opacity=0.75
             ),
             row=subplots_rows, col=subplots_cols
         )
@@ -57,5 +58,5 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
     fig.update_layout(barmode='overlay', height=1000, width=1250,
                       title_text="Quiz", showlegend=False)
     fig.update_xaxes(range=[0, 110], tick0=0, dtick=20)
-    fig.update_traces(opacity=0.75)
+    # fig.update_traces(opacity=0.75)
     st.plotly_chart(fig, use_container_width=True)
