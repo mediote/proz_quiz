@@ -21,17 +21,21 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
     for i in range(1, quiz_range + 1):
         x0 = quiz_data[quiz_data.titulo_objeto ==
                        f'Quiz {i}'.format(i)].pontuacao
+
         x1 = quiz_data[quiz_data.titulo_objeto ==
                        f'Quiz {i} D'.format(i)].pontuacao
 
-        y = quiz_data[quiz_data.titulo_objeto ==
-                      f'Quiz {i} D'.format(i)]
+        y0 = quiz_data[quiz_data.titulo_objeto ==
+                       f'Quiz {i}'.format(i)]
+
+        y1 = quiz_data[quiz_data.titulo_objeto ==
+                       f'Quiz {i} D'.format(i)]
         q_number = i
 
         fig.add_trace(
             go.Histogram(
                 x=x0,
-                y=y,
+                y=y0,
                 name=f'Quiz {q_number}'.format(q_number),
                 nbinsx=10,
                 marker_color='#FF7F00'
@@ -42,7 +46,7 @@ def plot_quiz_hist(quiz_data, n_rows, n_cols):
         fig.add_trace(
             go.Histogram(
                 x=x1,
-                y=y,
+                y=y1,
                 name=f'Quiz {q_number} D'.format(q_number),
                 nbinsx=10,
                 marker_color='#593493',
