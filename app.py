@@ -15,11 +15,12 @@ if uploaded_file is not None:
 
     option = st.selectbox(
         'Selecione o tipo de visualização desejado.',
-        ('', 'Histograma', 'Box Plot'))
+        ('', 'Histograma', 'Bar Plot', 'Box Plot'))
 
     if option == 'Histograma':
         hist.plot_quiz_hist(quiz, 5, 3)
     if option == 'Box Plot':
         boxp.plot_quiz_box(quiz, 5, 3)
     if option == 'Bar Plot':
-        barp.plot_quiz_bar(quiz, 5, 5)
+        quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
+        barp.plot_quiz_bar(quiz_metrics, 5, 5)
