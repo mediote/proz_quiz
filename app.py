@@ -30,7 +30,7 @@ if uploaded_file is not None:
             metric = 'mean'
             quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
             barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
-        else:
+        if metric_option == 'Mediana':
             metric = 'median'
             quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
             barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
