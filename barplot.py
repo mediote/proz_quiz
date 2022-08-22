@@ -28,7 +28,7 @@ def create_quiz_metrics_dataset(quiz_data):
     return quiz_metrics
 
 
-def plot_quiz_bar(quiz_data, n_rows, n_cols):
+def plot_quiz_bar(quiz_data, metric, n_rows, n_cols):
 
     quiz_range = len(
         quiz_data[quiz_data.quiz.str.contains("D")].quiz.unique())
@@ -46,9 +46,9 @@ def plot_quiz_bar(quiz_data, n_rows, n_cols):
     for i in range(1, quiz_range + 1):
 
         y0 = quiz_data[quiz_data.quiz ==
-                       f'Quiz {i}'.format(i)]['mean']
+                       f'Quiz {i}'.format(i)][metric]
         y1 = quiz_data[quiz_data.quiz ==
-                       f'Quiz {i} D'.format(i)]['mean']
+                       f'Quiz {i} D'.format(i)][metric]
         q_number = i
 
         fig.add_trace(

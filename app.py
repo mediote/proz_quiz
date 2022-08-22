@@ -13,14 +13,24 @@ if uploaded_file is not None:
         st.write(quiz)
         st.success('Done!')
 
-    option = st.selectbox(
+    vis_option = st.selectbox(
         'Selecione o tipo de visualização desejado.',
         ('', 'Histograma', 'Bar Plot', 'Box Plot'))
 
-    if option == 'Histograma':
+    if vis_option == 'Histograma':
         hist.plot_quiz_hist(quiz, 5, 3)
-    if option == 'Box Plot':
+    if vis_option == 'Box Plot':
         boxp.plot_quiz_box(quiz, 5, 3)
-    if option == 'Bar Plot':
-        quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
-        barp.plot_quiz_bar(quiz_metrics, 5, 5)
+    if vis_option == 'Bar Plot':
+        metric_option = st.selectbox(
+            'Selecione o tipo de visualização desejado.',
+            ('', 'Média', 'Mediana'))
+
+        if metric_option == 'Média':
+            metric = 'mean'
+            quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
+            barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
+        else:
+            metric = 'median'
+            quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
+            barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
