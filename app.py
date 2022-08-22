@@ -14,7 +14,7 @@ if uploaded_file is not None:
         st.success('Done!')
 
     vis_option = st.selectbox(
-        'Selecione o tipo de visualização desejado.',
+        'Selecione o tipo de visualização.',
         ('', 'Histograma', 'Bar Plot', 'Box Plot'))
 
     if vis_option == 'Histograma':
@@ -22,8 +22,8 @@ if uploaded_file is not None:
     if vis_option == 'Box Plot':
         boxp.plot_quiz_box(quiz, 5, 3)
     if vis_option == 'Bar Plot':
-        metric_option = st.selectbox(
-            'Selecione a métrica desejada.',
+        metric_option = st.radio(
+            'Selecione a métrica.',
             ('', 'Média', 'Mediana'))
 
         if metric_option == 'Média':
