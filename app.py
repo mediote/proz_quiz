@@ -23,7 +23,7 @@ if uploaded_file is not None:
         boxp.plot_quiz_box(quiz, 5, 3)
     if vis_option == 'Bar Plot':
         metric_option = st.selectbox(
-            'Selecione o tipo de visualização desejado.',
+            'Selecione a métrica desejada.',
             ('', 'Média', 'Mediana'))
 
         if metric_option == 'Média':
