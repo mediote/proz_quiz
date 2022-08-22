@@ -48,14 +48,14 @@ def plot_quiz_bar(quiz_data, n_rows, n_cols):
         y0 = quiz_data[quiz_data.quiz ==
                        f'Quiz {i}'.format(i)]['mean']
         y1 = quiz_data[quiz_data.quiz ==
-                       f'Quiz {i} D'.format(i)]['median']
+                       f'Quiz {i} D'.format(i)]['mean']
         q_number = i
 
         fig.add_trace(
             go.Bar(
-                #x=['Media', 'Mediana'],
+                x=['Quiz'],
                 y=y0,
-                name=f'Quiz {q_number}'.format(q_number),
+                name=f'Quiz {q_number} média'.format(q_number),
                 marker_color='#FF7F00'
             ),
             row=subplots_rows, col=subplots_cols
@@ -63,9 +63,9 @@ def plot_quiz_bar(quiz_data, n_rows, n_cols):
 
         fig.add_trace(
             go.Bar(
-                #x=['Media', 'Mediana'],
+                x=['Quiz D'],
                 y=y1,
-                name=f'quiz {q_number} D'.format(q_number),
+                name=f'quiz {q_number} D média'.format(q_number),
                 marker_color='#593493'
             ),
             row=subplots_rows, col=subplots_cols
@@ -80,4 +80,5 @@ def plot_quiz_bar(quiz_data, n_rows, n_cols):
     fig.update_layout(height=1000, width=1250,
                       title_text="Quiz", showlegend=False)
     fig.update_yaxes(range=[0, 100], tick0=0, dtick=20)
+    fig.show()
     st.plotly_chart(fig, use_container_width=True)
