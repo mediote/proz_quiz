@@ -20,16 +20,16 @@ def plot_quiz_box(quiz_data, n_rows, n_cols):
 
     for i in range(1, quiz_range + 1):
 
-        x0 = quiz_data[quiz_data.titulo_objeto ==
+        y0 = quiz_data[quiz_data.titulo_objeto ==
                        f'Quiz {i}'.format(i)].pontuacao
-        x1 = quiz_data[quiz_data.titulo_objeto ==
+        y1 = quiz_data[quiz_data.titulo_objeto ==
                        f'Quiz {i} D'.format(i)].pontuacao
 
         q_number = i
 
         fig.add_trace(
             go.Box(
-                y=x0,
+                y=y0,
                 name=f'Quiz {q_number}'.format(q_number),
                 marker_color='#FF7F00'
             ),
@@ -38,7 +38,7 @@ def plot_quiz_box(quiz_data, n_rows, n_cols):
 
         fig.add_trace(
             go.Box(
-                y=x1,
+                y=y1,
                 name=f'Quiz {q_number} D'.format(q_number),
                 marker_color='#593493'
             ),

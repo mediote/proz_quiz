@@ -10,7 +10,7 @@ if uploaded_file is not None:
     with st.spinner('Wait for it...'):
         quiz = pd.read_csv(uploaded_file)
         st.write(quiz)
-    st.success('Done!')
+        st.success('Done!')
 
     option = st.selectbox(
         'Selecione o tipo de visualização desejado.',
