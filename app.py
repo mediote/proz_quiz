@@ -24,7 +24,7 @@ if uploaded_file is not None:
     if vis_option == 'Bar Plot':
         metric_option = st.radio(
             'Selecione a métrica.',
-            ('Média', 'Mediana'))
+            ('', 'Média', 'Mediana'))
 
         if metric_option == 'Média':
             metric = 'mean'
