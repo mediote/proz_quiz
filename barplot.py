@@ -53,7 +53,7 @@ def plot_quiz_bar(quiz_data, n_rows, n_cols):
 
         fig.add_trace(
             go.Bar(
-                x=['Quiz'],
+                x=['Media', 'Mediana'],
                 y=y0,
                 name=f'Quiz {q_number}'.format(q_number),
                 marker_color='#FF7F00'
@@ -63,7 +63,7 @@ def plot_quiz_bar(quiz_data, n_rows, n_cols):
 
         fig.add_trace(
             go.Bar(
-                x=['Quiz D'],
+                x=['Media', 'Mediana'],
                 y=y1,
                 name=f'quiz {q_number} D'.format(q_number),
                 marker_color='#593493'
