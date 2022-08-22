@@ -55,7 +55,7 @@ def plot_quiz_bar(quiz_data, metric, n_rows, n_cols):
             go.Bar(
                 x=['Quiz'],
                 y=y0,
-                name=f'Quiz {q_number} média'.format(q_number),
+                name=f'Quiz {q_number} {metric}'.format(q_number, metric),
                 marker_color='#FF7F00'
             ),
             row=subplots_rows, col=subplots_cols
@@ -65,7 +65,7 @@ def plot_quiz_bar(quiz_data, metric, n_rows, n_cols):
             go.Bar(
                 x=['Quiz D'],
                 y=y1,
-                name=f'quiz {q_number} D média'.format(q_number),
+                name=f'quiz {q_number} D {metric}'.format(q_number, metric),
                 marker_color='#593493'
             ),
             row=subplots_rows, col=subplots_cols
