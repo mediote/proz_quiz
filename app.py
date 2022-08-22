@@ -33,6 +33,6 @@ if uploaded_file is not None:
             barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
         if metric_option == 'Mediana':
             metric = 'median'
-            st.write('Voçê selecionou médiana.')
+            st.write('Voçê selecionou mediana.')
             quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
             barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
