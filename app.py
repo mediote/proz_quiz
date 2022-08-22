@@ -21,5 +21,5 @@ if uploaded_file is not None:
         hist.plot_quiz_hist(quiz, 5, 3)
     if option == 'Box Plot':
         boxp.plot_quiz_box(quiz, 5, 3)
-    if option == 'Box Plot':
+    if option == 'Bar Plot':
         barp.plot_quiz_bar(quiz, 5, 5)
