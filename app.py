@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-import histogram as ht
-import boxplot as bp
+import histogram as hist
+import boxplot as boxp
+import barplot as barp
 
 
 uploaded_file = st.file_uploader("Selecione o arquivo.")
@@ -17,6 +18,8 @@ if uploaded_file is not None:
         ('', 'Histograma', 'Box Plot'))
 
     if option == 'Histograma':
-        ht.plot_quiz_hist(quiz, 5, 3)
+        hist.plot_quiz_hist(quiz, 5, 3)
     if option == 'Box Plot':
-        bp.plot_quiz_box(quiz, 5, 3)
+        boxp.plot_quiz_box(quiz, 5, 3)
+    if option == 'Box Plot':
+        barp.plot_quiz_bar(quiz, 5, 5)
