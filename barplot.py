@@ -22,8 +22,10 @@ def create_quiz_metrics_dataset(quiz_data):
 
         quiz_d = {
             "quiz": f'Quiz {quiz_number} D'.format(quiz_number),
-            "mean": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number} D'.format(quiz_number)].pontuacao.describe().mean().round(2),
-            "median": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number} D'.format(quiz_number)].pontuacao.describe().median().round(2)
+            "mean": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number} D'
+                              .format(quiz_number)].pontuacao.describe().mean().round(2),
+            "median": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number} D'
+                                .format(quiz_number)].pontuacao.describe().median().round(2)
         }
 
         quiz_list.append(quiz_d)

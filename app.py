@@ -4,6 +4,7 @@ import pandas as pd
 import histogram as hist
 import boxplot as boxp
 import barplot as barp
+import boxplot_total as boxpt
 
 
 uploaded_file = st.file_uploader("Selecione o arquivo.")
@@ -16,17 +17,18 @@ if uploaded_file is not None:
 
     vis_option = st.selectbox(
         'Selecione o tipo de visualização.',
-        ('', 'Histograma', 'Bar Plot', 'Box Plot'))
+        ('', 'Histograma', 'Bar Plot', 'Box Plot', 'Box Plot - Total'))
 
     if vis_option == 'Histograma':
         hist.plot_quiz_hist(quiz, 5, 3)
     if vis_option == 'Box Plot':
         boxp.plot_quiz_box(quiz, 5, 3)
+    if vis_option == 'Box Plot - Total':
+        boxpt.plot_quiz_box_total(quiz)
     if vis_option == 'Bar Plot':
         metric_option = st.radio(
             'Selecione a métrica.',
             ('Média', 'Mediana'))
-
         if metric_option == 'Média':
             metric = 'mean'
             st.write('Voçê selecionou média.')
