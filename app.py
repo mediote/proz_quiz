@@ -10,6 +10,7 @@ uploaded_file = st.file_uploader("Selecione o arquivo.")
 if uploaded_file is not None:
     with st.spinner('Wait for it...'):
         quiz = pd.read_csv(uploaded_file)
+        quiz = quiz[quiz.status_aprendiz == 'Concluído']
         st.write(quiz)
         st.success('Done!')
 
@@ -30,9 +31,9 @@ if uploaded_file is not None:
             metric = 'mean'
             st.write('Voçê selecionou média.')
             quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
-            barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
+            barp.plot_quiz_bar(quiz_metrics, metric, 5, 3)
         if metric_option == 'Mediana':
             metric = 'median'
             st.write('Voçê selecionou mediana.')
             quiz_metrics = barp.create_quiz_metrics_dataset(quiz)
-            barp.plot_quiz_bar(quiz_metrics, metric, 5, 5)
+            barp.plot_quiz_bar(quiz_metrics, metric, 5, 3)
