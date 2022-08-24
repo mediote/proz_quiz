@@ -11,6 +11,7 @@ if uploaded_file is not None:
     with st.spinner('Wait for it...'):
         quiz = pd.read_csv(uploaded_file)
         quiz = quiz[quiz.status_aprendiz == 'Concluído']
+        quiz = quiz[quiz.titulo_objeto.str.startswith("Quiz")]
         st.write(quiz)
         st.success('Done!')
 
