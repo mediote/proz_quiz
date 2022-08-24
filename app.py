@@ -1,11 +1,10 @@
-import streamlit as st
 import pandas as pd
+import streamlit as st
 
-import histogram as hist
-import boxplot as boxp
 import barplot as barp
+import boxplot as boxp
 import boxplot_total as boxpt
-
+import histogram as hist
 
 uploaded_file = st.file_uploader("Selecione o arquivo.")
 if uploaded_file is not None:

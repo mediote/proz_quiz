@@ -36,8 +36,7 @@ def create_quiz_metrics_dataset(quiz_data):
 
 def plot_quiz_bar(quiz_data, metric, n_rows, n_cols):
 
-    quiz_range = len(
-        quiz_data[quiz_data.quiz.str.contains("D")].quiz.unique())
+    quiz_range = len(quiz_data[quiz_data.quiz.str.endswith("D")].quiz.unique())
 
     fig = make_subplots(
         rows=n_rows,

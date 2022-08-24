@@ -6,7 +6,7 @@ import streamlit as st
 def plot_quiz_hist(quiz_data, n_rows, n_cols):
 
     quiz_range = len(
-        quiz_data[quiz_data.titulo_objeto.str.contains("D")].titulo_objeto.unique())
+        quiz_data[quiz_data.titulo_objeto.str.endswith("D")].titulo_objeto.unique())
 
     fig = make_subplots(
         rows=n_rows,
