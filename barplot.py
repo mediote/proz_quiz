@@ -10,15 +10,6 @@ def create_quiz_metrics_dataset(quiz_data):
 
     quiz_list = list()
     for quiz_number in range(1, quiz_range + 1):
-        quiz = {
-            "quiz": f'Quiz {quiz_number}'.format(quiz_number),
-            "mean": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number}'
-                              .format(quiz_number)].pontuacao.mean().round(2),
-            "median": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number}'
-                                .format(quiz_number)].pontuacao.median().round(2)
-        }
-
-        quiz_list.append(quiz)
 
         quiz_d = {
             "quiz": f'Quiz {quiz_number} D'.format(quiz_number),
@@ -29,6 +20,16 @@ def create_quiz_metrics_dataset(quiz_data):
         }
 
         quiz_list.append(quiz_d)
+
+        quiz = {
+            "quiz": f'Quiz {quiz_number}'.format(quiz_number),
+            "mean": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number}'
+                              .format(quiz_number)].pontuacao.mean().round(2),
+            "median": quiz_data[quiz_data.titulo_objeto == f'Quiz {quiz_number}'
+                                .format(quiz_number)].pontuacao.median().round(2)
+        }
+
+        quiz_list.append(quiz)
 
     quiz_metrics = pd.DataFrame(quiz_list)
     return quiz_metrics
