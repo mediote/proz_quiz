@@ -41,7 +41,7 @@ def plot_quiz_bar(quiz_data, metric, n_rows, n_cols):
     fig = make_subplots(
         rows=n_rows,
         cols=n_cols,
-        subplot_titles=([(lambda x: f'Quiz {x} / {x} D'.format(x))(x)
+        subplot_titles=([(lambda x: f'Quiz {x}'.format(x))(x)
                          for x in range(1, quiz_range + 1)])
     )
 
@@ -49,29 +49,29 @@ def plot_quiz_bar(quiz_data, metric, n_rows, n_cols):
     subplots_cols = 1
 
     for i in range(1, quiz_range + 1):
-
         y0 = quiz_data[quiz_data.quiz ==
-                       f'Quiz {i}'.format(i)][metric]
-        y1 = quiz_data[quiz_data.quiz ==
                        f'Quiz {i} D'.format(i)][metric]
+        y1 = quiz_data[quiz_data.quiz ==
+                       f'Quiz {i}'.format(i)][metric]
+
         q_number = i
 
         fig.add_trace(
             go.Bar(
-                x=['Quiz'],
+                x=['Quiz D'],
                 y=y0,
-                name=f'Quiz {q_number} {metric}'.format(q_number, metric),
-                marker_color='#FF7F00'
+                name=f'quiz {q_number} D {metric}'.format(q_number, metric),
+                marker_color='#593493'
             ),
             row=subplots_rows, col=subplots_cols
         )
 
         fig.add_trace(
             go.Bar(
-                x=['Quiz D'],
+                x=['Quiz'],
                 y=y1,
-                name=f'quiz {q_number} D {metric}'.format(q_number, metric),
-                marker_color='#593493'
+                name=f'Quiz {q_number} {metric}'.format(q_number, metric),
+                marker_color='#FF7F00'
             ),
             row=subplots_rows, col=subplots_cols
         )

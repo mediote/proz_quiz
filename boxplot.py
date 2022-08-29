@@ -6,7 +6,8 @@ import streamlit as st
 def plot_quiz_box(quiz_data, n_rows, n_cols):
 
     quiz_range = len(
-        quiz_data[quiz_data.titulo_objeto.str.endswith("D")].titulo_objeto.unique())
+        quiz_data[quiz_data.titulo_objeto.str.endswith("D")]
+        .titulo_objeto.unique())
 
     fig = make_subplots(
         rows=n_rows,
@@ -21,17 +22,17 @@ def plot_quiz_box(quiz_data, n_rows, n_cols):
     for i in range(1, quiz_range + 1):
 
         y0 = quiz_data[quiz_data.titulo_objeto ==
-                       f'Quiz {i}'.format(i)].pontuacao
-        y1 = quiz_data[quiz_data.titulo_objeto ==
                        f'Quiz {i} D'.format(i)].pontuacao
+        y1 = quiz_data[quiz_data.titulo_objeto ==
+                       f'Quiz {i}'.format(i)].pontuacao
 
         q_number = i
 
         fig.add_trace(
             go.Box(
                 y=y0,
-                name=f'Quiz {q_number}'.format(q_number),
-                marker_color='#FF7F00'
+                name=f'Quiz {q_number} D'.format(q_number),
+                marker_color='#593493'
             ),
             row=subplots_rows, col=subplots_cols
         )
@@ -39,8 +40,8 @@ def plot_quiz_box(quiz_data, n_rows, n_cols):
         fig.add_trace(
             go.Box(
                 y=y1,
-                name=f'Quiz {q_number} D'.format(q_number),
-                marker_color='#593493'
+                name=f'Quiz {q_number}'.format(q_number),
+                marker_color='#FF7F00'
             ),
             row=subplots_rows, col=subplots_cols
         )
