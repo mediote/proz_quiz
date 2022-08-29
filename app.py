@@ -20,10 +20,8 @@ if uploaded_file is not None:
 
     vis_option = st.selectbox(
         'Selecione o tipo de visualização.',
-        ('', 'Histograma', 'Bar Plot', 'Box Plot', 'Box Plot - Total'))
+        ('', 'Bar Plot', 'Box Plot', 'Box Plot - Total'))
 
-    if vis_option == 'Histograma':
-        hist.plot_quiz_hist(quiz, 5, 3)
     if vis_option == 'Box Plot':
         boxp.plot_quiz_box(quiz, 5, 3)
     if vis_option == 'Box Plot - Total':
