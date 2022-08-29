@@ -18,7 +18,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    modify = st.checkbox("Selecione para adcionar filtros aos dados.")
+    modify = st.checkbox("Selecione os filtros.")
 
     if not modify:
         return df
@@ -55,7 +55,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                 _max = float(df[column].max())
                 step = (_max - _min) / 100
                 user_num_input = right.slider(
-                    f"Values for {column}",
+                    f"Valores para {column}",
                     min_value=_min,
                     max_value=_max,
                     value=(_min, _max),
@@ -77,7 +77,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     df = df.loc[df[column].between(start_date, end_date)]
             else:
                 user_text_input = right.text_input(
-                    f"Substring or regex in {column}",
+                    f"Pesquisa por texto {column}",
                 )
                 if user_text_input:
                     df = df[df[column].astype(
