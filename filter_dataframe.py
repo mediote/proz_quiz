@@ -18,10 +18,10 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    # modify = st.checkbox("")
+    # # modify = st.checkbox("")
 
     # if not modify:
-    #   return df
+    # return df
 
     df = df.copy()
 
