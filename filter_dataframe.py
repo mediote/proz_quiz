@@ -51,7 +51,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                 )
                 df = df[df[column].isin(user_cat_input)]
             elif is_numeric_dtype(df[column]):
-                st.warning('Filtro não disponível para o campo {column}!')
+                st.warning(f'Filtro não disponível para o campo {column}!')
                 # _min = float(df[column].min())
                 # _max = float(df[column].max())
                 # step = (_max - _min) / 100
