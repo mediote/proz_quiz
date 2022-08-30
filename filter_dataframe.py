@@ -41,9 +41,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     with modification_container:
         to_filter_columns = st.multiselect("Filtrar os dados por", df.columns)
         for column in to_filter_columns:
-            left, right = st.columns((1, 20))
+            left, right = st.columns((1, 30))
             # Treat columns with < 10 unique values as categorical
-            if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
+            if is_categorical_dtype(df[column]) or df[column].nunique() <= 30:
                 user_cat_input = right.multiselect(
                     f"Filtro para {column}",
                     df[column].unique(),
@@ -75,12 +75,12 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                         map(pd.to_datetime, user_date_input))
                     start_date, end_date = user_date_input
                     df = df.loc[df[column].between(start_date, end_date)]
-            else:
-                user_text_input = right.text_input(
-                    f"Pesquisa por texto {column}",
-                )
-                if user_text_input:
-                    df = df[df[column].astype(
-                        str).str.contains(user_text_input)]
+            # else:
+                # user_text_input = right.text_input(
+                #   f"Pesquisa por texto {column}",
+                # )
+                # if user_text_input:
+                #    df = df[df[column].astype(
+                #        str).str.contains(user_text_input)]
 
     return df
