@@ -84,6 +84,6 @@ def plot_quiz_bar(quiz_data, metric, n_rows, n_cols):
             subplots_cols += 1
 
     fig.update_layout(height=1000, width=1250,
-                      title_text="Quiz", showlegend=False)
+                      title_text="Bar Plot", showlegend=False)
     fig.update_yaxes(range=[0, 100], tick0=0, dtick=20)
     st.plotly_chart(fig, use_container_width=True)

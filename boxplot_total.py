@@ -10,5 +10,5 @@ def plot_quiz_box_total(quiz_data):
     fig.add_trace(go.Box(y=y1, name='Quiz', marker_color='#FF7F00'))
     fig.update_traces(boxmean=True)
     fig.update_traces(orientation='v')
-    fig.update_layout(title_text="Quiz", height=400, width=600)
+    fig.update_layout(title_text="Box Plot", height=400, width=600)
     st.plotly_chart(fig, use_container_width=True)

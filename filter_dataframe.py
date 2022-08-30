@@ -18,10 +18,10 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    modify = st.checkbox("Selecione os filtros.")
+    # modify = st.checkbox("")
 
-    if not modify:
-        return df
+    # if not modify:
+    #   return df
 
     df = df.copy()
 
@@ -45,7 +45,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
             # Treat columns with < 10 unique values as categorical
             if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
                 user_cat_input = right.multiselect(
-                    f"Valores para {column}",
+                    f"Filtro para {column}",
                     df[column].unique(),
                     default=list(df[column].unique()),
                 )
@@ -55,7 +55,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                 _max = float(df[column].max())
                 step = (_max - _min) / 100
                 user_num_input = right.slider(
-                    f"Valores para {column}",
+                    f"Filtro para {column}",
                     min_value=_min,
                     max_value=_max,
                     value=(_min, _max),
@@ -64,7 +64,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                 df = df[df[column].between(*user_num_input)]
             elif is_datetime64_any_dtype(df[column]):
                 user_date_input = right.date_input(
-                    f"Valores para {column}",
+                    f"Filtro para {column}",
                     value=(
                         df[column].min(),
                         df[column].max(),

@@ -52,7 +52,7 @@ def plot_quiz_box(quiz_data, n_rows, n_cols):
         else:
             subplots_cols += 1
 
-    fig.update_layout(title_text="Quiz", showlegend=False,
+    fig.update_layout(title_text="Box Plot", showlegend=False,
                       height=1000, width=1250,)
     fig.update_traces(boxmean=True)
     fig.update_traces(orientation='v')
