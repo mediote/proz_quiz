@@ -51,7 +51,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                 )
                 df = df[df[column].isin(user_cat_input)]
             elif is_numeric_dtype(df[column]):
-                st.warning('Filtros não disponíveis para o campo {column}!')
+                st.warning('Filtro não disponível para o campo {column}!')
                 # _min = float(df[column].min())
                 # _max = float(df[column].max())
                 # step = (_max - _min) / 100
@@ -77,7 +77,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     start_date, end_date = user_date_input
                     df = df.loc[df[column].between(start_date, end_date)]
             else:
-                st.warning(f'Filtros não disponíveis para o campo {column}!')
+                st.warning(f'Filtro não disponível para o campo {column}!')
                 # user_text_input = right.text_input(
                 #    f"Pesquisa por texto {column}",
                 # )
