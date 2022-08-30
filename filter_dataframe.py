@@ -41,9 +41,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     with modification_container:
         to_filter_columns = st.multiselect("Filtrar os dados por", df.columns)
         for column in to_filter_columns:
-            left, right = st.columns((1, 30))
+            left, right = st.columns((1, 10))
             # Treat columns with < 30 unique values as categorical
-            if is_categorical_dtype(df[column]) or df[column].nunique() <= 30:
+            if is_categorical_dtype(df[column]) or df[column].nunique() <= 10:
                 user_cat_input = right.multiselect(
                     f"Filtro para {column}",
                     df[column].unique(),
