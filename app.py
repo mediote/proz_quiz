@@ -2,12 +2,14 @@ import pathlib
 
 import pandas as pd
 import streamlit as st
+from PIL import Image
 
 import barplot as barp
 import boxplot as boxp
 import boxplot_total as boxpt
 import filter_dataframe as fildf
 
+image = Image.open('logo-proz.png')
 df = pd.DataFrame()
 metric_option = ''
 
@@ -63,6 +65,8 @@ def render_main_app(dataframe, vis_option, metric_option):
 
 
 with st.sidebar:
+
+    st.image(image, width=200, caption='Quem conhece, confia')
     st.markdown('## Opções')
     with st.expander("Upload de arquivos"):
         output_file = st.file_uploader("Selecione o arquivo")
